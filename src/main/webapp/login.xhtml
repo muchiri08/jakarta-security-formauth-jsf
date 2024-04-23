@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Jakarta Security Form Auth</title>
+    </h:head>
+    <h:body>
+        <style>
+            .flex {
+                display: flex;
+                gap: 2px;
+            }
+            .flex-col {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                align-items: flex-start;
+            }
+            .mt-5 {
+                margin-top: 5px;
+            }
+            .p-5 {
+                padding: 5px;
+            }
+            .w-fit {
+                width: fit-content
+            }
+            .font-sm {
+                font-size: smaller;
+            }
+            .no-bg {
+                background-color: unset;
+            }
+        </style>
+        <p:messages id="messages" showDetail="true" closable="true" class="w-fit" showIcon="false" skipDetailIfEqualsSummary="true" globalOnly="true">
+            <p:autoUpdate/>
+        </p:messages>
+        <h:form id="login">
+            <div class="flex-col">
+                <p:outputLabel for="username" value="Username"/>
+                <div class="flex">
+                    <p:inputText id="username" value="#{login.username}" />
+                    <p:message for="username" display="text" class="font-sm no-bg" />
+                </div>
+            </div>
+
+            <div class="flex-col mt-5">
+                <p:outputLabel for="password" value="Password"/>
+                <div class="flex">
+                    <p:inputText id="password" type="password" value="#{login.password}" />
+                    <p:message for="password" display="text"/>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <p:commandButton update="@form" action="#{login.execute()}" value="Login" ajax="false"/>
+            </div>
+        </h:form>
+    </h:body>
+</html>

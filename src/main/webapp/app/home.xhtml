@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Home</title>
+    </h:head>
+    <h:body>
+        <h3>Hello #{home.loggedInUser}. Welcome to home page</h3>
+
+        <h:form>
+            <p:commandButton value="Logout" action="#{home.logout()}" />
+        </h:form>
+    </h:body>
+</html>
